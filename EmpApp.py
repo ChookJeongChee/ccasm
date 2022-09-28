@@ -236,35 +236,27 @@ def leaveOutput():
     last_name = request.form['last_name']
     start_date = request.form['start_date']
     end_date = request.form['end_date']
-    leave_type = request.form['leave_type']
-    comment = request.form['comment']
-    emp_leave_file = request.files['emp_leave_file']
+    leave_reason = request.form['leave_reason']
+    leave_file = request.files['leave_file']
 
-    startDate = datetime.strptime(start_date, "%Y-%m-%d")
-    endDate = datetime.strptime(end_date, "%Y-%m-%d")
-
-    difference = endDate - startDate
-    daysLeave = difference + timedelta(1)
-    daysLeave = daysLeave.days
-
-    insert_sql = "INSERT INTO empleave VALUES (%s, %s, %s, %s, %s, %s, %s)"
+    insert_sql = "INSERT INTO employeeleave VALUES (%s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
-    if emp_leave_file.filename == "":
+    if leave_file.filename == "":
         return render_template('Error.html', msg = "Please select a file")
 
     try:
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, start_date, end_date, leave_type, comment))
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, start_date, end_date, leave_reason))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         
         # Uplaod image file in S3 #
-        emp_leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file"
+        leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file"
         s3 = boto3.resource('s3')
 
         try:
             print("Data inserted in MySQL RDS... uploading image to S3...")
-            s3.Bucket(custombucket).put_object(Key=emp_leave_file_name_in_s3, Body=emp_leave_file)
+            s3.Bucket(custombucket).put_object(Key=leave_file_name_in_s3, Body=leave_file)
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
             s3_location = (bucket_location['LocationConstraint'])
 
@@ -276,7 +268,7 @@ def leaveOutput():
             object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
                 s3_location,
                 custombucket,
-                emp_leave_file_name_in_s3)
+                leave_file_name_in_s3)
 
         except Exception as e:
             return str(e)
@@ -288,7 +280,7 @@ def leaveOutput():
         cursor.close()
 
     print("all modification done...")
-    return render_template('AtdLeaveOutput.html', date = datetime.now(), name = emp_name, id = emp_id, ttldaysofleave = daysLeave, typeOfLeave = leave_type)  
+    return render_template('AtdLeaveOutput.html', date = datetime.now(), name = emp_name, id = emp_id, LeaveReason = leave_reason)  
 
 
 if __name__ == '__main__':

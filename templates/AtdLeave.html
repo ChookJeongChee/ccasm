@@ -159,7 +159,7 @@ html, body {
       <h1>Apply Leave</h1>
       
     </div>
-    <form action="/">
+    <form action="/leave/output">
       <div class="title">
         <i class="fas fa-pencil-alt"></i> 
         <h2>Apply leave</h2>
@@ -167,12 +167,10 @@ html, body {
 
       <!-- ADD EMPLOYEE HERE -->
       <div class="info">
-        <input class="id" type="text" name="name" placeholder="Enter Your Id">
-        <input class="fname" type="text" name="name" placeholder="First Name">
-        <input class="lname" type="text" name="name" placeholder="Last Name">
-        <input id="start_date" type="date" name="start_date" required />
-        <i class="fas fa-calendar-alt"></i>
-        <input class="location" type="text" name="name" placeholder="Location">
+        <input class="id" type="text" name="emp_id" placeholder="Enter Your Id">
+        <input class="fname" type="text" name="first_name" placeholder="First Name">
+        <input class="lname" type="text" name="last_name" placeholder="Last Name">
+        <input class="reason" type="text" name="leave_reason" placeholder="Leave Reason">
 
         <div>
             <label for="start_date">Leave Start Date</label>
@@ -189,13 +187,10 @@ html, body {
         <div>
             <label for="file">Attachment</label>
             <label for="myfile">Select a file:</label>
-            <input type="file" id="myfile" name="emp_leave_file" required>
-            <br>
-            <label for="comment">Comment</label>
-            <textarea placeholder="Remarks" rows="2" name="comment"></textarea>
+            <input type="file" id="myfile" name="leave_file" required>
         </div>
     </div>
-      <button type="submit" href="AtdLeaveOutput.html">Submit</button>
+      <button type="submit" formaction="/leave/output">Submit</button>
     </form>
 
 <!-- End Page Content -->
