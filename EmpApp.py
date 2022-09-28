@@ -243,7 +243,7 @@ def leaveOutput():
     cursor = db_conn.cursor()
 
     if store_leave_file.filename == "":
-        return render_template('Error.html', msg = "Please select a file")
+         return str(e)
 
     try:
         cursor.execute(insert_sql, (emp_id, first_name, last_name, leave_reason, start_date, end_date))
