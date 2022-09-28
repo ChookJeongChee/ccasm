@@ -180,17 +180,20 @@
     <!-- Navbar -->
     <div class="w3-top">
         <div class="w3-bar w3-black w3-card">
-          <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-          <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-          <a href="/addemp" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ADD EMPLOYEE</a>
-          <a href="/updateemploy" class="w3-bar-item w3-button w3-padding-large w3-hide-small">UPDATE EMPLOYEE</a>
-          <a href="/deleteemploy" class="w3-bar-item w3-button w3-padding-large w3-hide-small">DELETE EMPLOYEE</a>
-          <a href="/leave" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LEAVE</a>
-          <a href="/about" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
-        
-          <a href="/search" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+                href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="/" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+            <a href="/addemp" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ADD EMPLOYEE</a>
+            <a href="/updateemploy" class="w3-bar-item w3-button w3-padding-large w3-hide-small">UPDATE EMPLOYEE</a>
+            <a href="/deleteemploy" class="w3-bar-item w3-button w3-padding-large w3-hide-small">DELETE EMPLOYEE</a>
+            <a href="/leave" class="w3-bar-item w3-button w3-padding-large w3-hide-small">LEAVE</a>
+            <a href="/about" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
+
+            <a href="/search" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i
+                    class="fa fa-search"></i></a>
         </div>
-      </div>
+    </div>
 
     <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
     <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
@@ -211,19 +214,14 @@
             <!-- ADD EMPLOYEE HERE -->
             <div>
 
-                Employee ID:{{ id }} <br>
+                <h3>Employee ID : {{ result[0]}}</h3><br>
+                <h3>First Name : {{ result[1]}}</h3><br>
+                <h3>Last Name : {{ result[2]}}</h3><br>
+                <h3>Primary Skill : {{ result[3]}}</h3><br>
+                <h3>Location : {{ result[4]}}</h3><br>
 
-                First Name:<br> {{ fname }} <br>
-
-                Last Name:<br> {{ lname }} <br>
-
-                Primary Interest:<br> {{ interest }} <br>
-
-                Location:<br> {{ location }} <br>
-
-                Image URL: <br> {{ image_url }} <br>
-
-                <button type="submit" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;" formaction="http://3.134.115.108:80/getemp">RESET</button><br><br>
+                <button type="submit" style="background: grey; height: 45px; width: 200px; color:white; font:oblique;"
+                    formaction="http://3.134.115.108:80/getemp">RESET</button><br><br>
 
             </div>
         </form>
