@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>W3.CSS Template</title>
+<title>HR System</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -56,21 +56,21 @@ body {font-family: "Lato", sans-serif}
         <div class="w3-third w3-margin-bottom">
           
           <div class="w3-container w3-white">
-            <p><b>Manage Employee</b></p>
-            <button href="AddEmploy.html" class="w3-button w3-black w3-margin-bottom" >Manage</button>
+            <p><b>Add Employee</b></p>
+            <button formaction="/AddEmploy" class="w3-button w3-black w3-margin-bottom" >Add</button>
           </div>
         </div>
         <div class="w3-third w3-margin-bottom">
           <div class="w3-container w3-white">
             <p><b>Leave</b></p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Attendace Leave</button>
+            <button formaction="/leave" class="w3-button w3-black w3-margin-bottom" >Leave</button>
           </div>
         </div>
         <div class="w3-third w3-margin-bottom">
         
           <div class="w3-container w3-white">
             <p><b>About Us</b></p>
-            <button class="w3-button w3-black w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">About Us</button>
+            <button  formaction="/about" class="w3-button w3-black w3-margin-bottom">About Us</button>
           </div>
         </div>
       </div>
