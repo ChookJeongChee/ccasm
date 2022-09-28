@@ -159,7 +159,7 @@ html, body {
       <h1>Delete Employee</h1>
       
     </div>
-    <form action="/">
+    <form action="/deleteemploy/output" method="POST">
       <div class="title">
         <i class="fas fa-pencil-alt"></i> 
         <h2>Key in Employee ID</h2>
@@ -167,10 +167,10 @@ html, body {
 
       <!-- ADD EMPLOYEE HERE -->
       <div class="info">
-        <input class="id" type="text" name="name" placeholder="Employee ID">
+        <input class="id" type="number" name="emp_id" placeholder="Employee ID">
         <br>
       </div>
-      <button type="submit" href="DeleteEmployOutput.html">Submit</button>
+      <button type="submit" formaction="/deleteemploy/output">Submit</button>
     </form>
 
 <!-- End Page Content -->

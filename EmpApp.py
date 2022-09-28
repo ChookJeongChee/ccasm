@@ -182,7 +182,7 @@ def deleteEmp():
     return render_template('DeleteEmploy.html')
 
 #DeleteEmployee Output
-@app.route("/deleteemploy/output", methods=['GET', 'POST'])
+@app.route("/deleteemploy/output", methods=['POST'])
 def deleteEmpOutput():
 
     emp_id = request.form['emp_id']
@@ -217,7 +217,7 @@ def deleteEmpOutput():
 
     try:
         s3_client.delete_object(Bucket=custombucket, Key=emp_image_file_name_in_s3)
-        return render_template("DeleteEmpOutput.html", emp_id = emp_id)
+        return render_template("DeleteEmployOutput.html", emp_id = emp_id)
 
     except Exception as e:
             return str(e)
