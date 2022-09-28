@@ -280,7 +280,7 @@ def leaveOutput():
         cursor.close()
 
     print("all modification done...")
-    return render_template('AtdLeaveOutput.html', name = emp_name, id = emp_id, LeaveReason = leave_reason)  
+    return render_template('AtdLeaveOutput.html', name = emp_name, id = emp_id, LeaveReason = leave_reason, startDate=start_date, endDate=end_date)  
 
 
 if __name__ == '__main__':
