@@ -234,15 +234,15 @@ def leaveOutput():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
+    leave_reason = request.form['leave_reason']
     start_date = request.form['start_date']
     end_date = request.form['end_date']
-    leave_reason = request.form['leave_reason']
-    leave_file = request.files['leave_file']
+    store_leave_file = request.files['store_leave_file']
 
     insert_sql = "INSERT INTO employeeleave VALUES (%s, %s, %s, %s, %s, %s)"
     cursor = db_conn.cursor()
 
-    if leave_file.filename == "":
+    if store_leave_file.filename == "":
         return render_template('Error.html', msg = "Please select a file")
 
     try:
@@ -251,12 +251,12 @@ def leaveOutput():
         emp_name = "" + first_name + " " + last_name
         
         # Uplaod image file in S3 #
-        leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file"
+        store_leave_file_name_in_s3 = "emp-id-" + str(emp_id) + "_leave_file"
         s3 = boto3.resource('s3')
 
         try:
             print("Data inserted in MySQL RDS... uploading image to S3...")
-            s3.Bucket(custombucket).put_object(Key=leave_file_name_in_s3, Body=leave_file)
+            s3.Bucket(custombucket).put_object(Key=store_leave_file_name_in_s3, Body=store_leave_file)
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
             s3_location = (bucket_location['LocationConstraint'])
 
@@ -268,7 +268,7 @@ def leaveOutput():
             object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
                 s3_location,
                 custombucket,
-                leave_file_name_in_s3)
+                store_leave_file_name_in_s3)
 
         except Exception as e:
             return str(e)
