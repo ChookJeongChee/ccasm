@@ -159,29 +159,30 @@ html, body {
       <h1>Update Employee</h1>
       
     </div>
-    <form action="updateemploy/output">
+    <div >
       <div class="title">
         <i class="fas fa-pencil-alt"></i> 
         <h2>Update employee here</h2>
       </div>
 
       <!-- ADD EMPLOYEE HERE -->
-      <div class="info">
-        <input class="id" type="text" name="name" placeholder="Employee ID">
-        <input class="fname" type="text" name="name" placeholder="First Name">
-        <input class="lname" type="text" name="name" placeholder="Last Name">
-        <input class="prskill" type="text" name="name" placeholder="Primary Skills">
-        <input class="location" type="text" name="name" placeholder="Location">
+      <form class="info" action="updateemploy/output" method="POST" enctype="multipart/form-data">
+        <input class="id" type="text" name="emp_id" placeholder="Employee ID">
+        <input class="fname" type="text" name="first_name" placeholder="First Name">
+        <input class="lname" type="text" name="last_name" placeholder="Last Name">
+        <input class="prskill" type="text" name="pri_skill" placeholder="Primary Skills">
+        <input class="location" type="text" name="location" placeholder="Location">
         <input type=file name="emp_image_file">
         <br>
-      </div>
+        <button type="submit">Submit</button>
+      </form>
       <div class="checkbox">
         <input type="checkbox" name="checkbox"><span>I agree to the <a href="https://www.w3docs.com/privacy-policy">Privacy Poalicy for W3Docs.</a></span>
       </div>
       <!-- <button type="submit" href="UpdateEmployOutput.html">Submit</button> -->
       <button type="submit">Submit</button>
 
-    </form>
+    </div>
 
 <!-- End Page Content -->
 </div>
