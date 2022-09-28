@@ -205,20 +205,31 @@
     <div class="left-part">
 
       <h1>Delete Employee</h1>
-
-    </div>
-    <div>
-
-      <form class="info" action="/deleteemploy/output" method="POST">
-        <input class="id" type="text" name="emp_id" placeholder="Employee ID">
-        <br>
-        <button type="submit">Submit</button>
-      </form>
       
     </div>
+    <form action="/">
+      <div class="title">
+        <i class="fas fa-pencil-alt"></i> 
+        <h2>Delete employee here</h2>
+      </div>
 
-    <!-- End Page Content -->
-  </div>
+    <form class="container" style="height:fit-content" action="/deleteemploy/output" autocomplete="on" method="POST">
+      <div class="card">
+        <h1 class="card_title" style="width:fit-content">Delete Employee</h1>
+        <div class="search">
+          <div style="padding: 15px 0;">
+            <label>Employee ID:</label>
+          </div>
+          <input class="input_field input_label" type="text" name="emp_id"
+            style="width: -webkit-fill-available; padding-top: 10px;" autofocus><br><br>
+        </div>
+        <button type="submit" class="search_btn"
+          style="width:-webkit-fill-available;margin:0">Submit</button><br><br>
+      </div>
+    </form>
+
+<!-- End Page Content -->
+</div>
 
 
   <!-- Footer -->
