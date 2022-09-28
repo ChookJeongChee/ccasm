@@ -246,7 +246,7 @@ def leaveOutput():
         return render_template('Error.html', msg = "Please select a file")
 
     try:
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, start_date, end_date, leave_reason))
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, leave_reason, start_date, end_date))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         
@@ -280,7 +280,7 @@ def leaveOutput():
         cursor.close()
 
     print("all modification done...")
-    return render_template('AtdLeaveOutput.html', date = datetime.now(), name = emp_name, id = emp_id, LeaveReason = leave_reason)  
+    return render_template('AtdLeaveOutput.html', name = emp_name, id = emp_id, LeaveReason = leave_reason)  
 
 
 if __name__ == '__main__':
