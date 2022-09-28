@@ -182,7 +182,7 @@ def deleteEmp():
     return render_template('DeleteEmploy.html')
 
 #DeleteEmployee Output
-@app.route("/deleteemploy/output", methods=['GET', 'POST'])
+@app.route("/deleteemploy/output", methods=['POST'])
 def deleteEmpOutput():
 
     emp_id = request.form['emp_id']
